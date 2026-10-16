@@ -38,7 +38,7 @@
 4. **观测噪声**、**摩擦 ≤1.0**：两者无差别。
 5. **失败点（两者都有）**：摩擦 1.5（在 DR 训练范围内）存活率仅 0.43 / 0.65，种子间方差很大；外推力 ≥200 N 时两者都大面积摔倒。说明 DR 范围内并不等于范围内都稳。
 
-## 局限（面试时请如实说）
+## 局限
 - 2D Walker2d，不是 3D 人形；没有关节力矩限制、接触模型的真实差距，也没有真机。**不能据此声称 sim2real 能力。**
 - 种子数 5，每个条件 24 个 episode；置换检验未做多重比较校正。
 - 随机化范围是我手工选的，没有做范围消融；也没有对比 AMP / 模仿学习 / 自适应（如 RMA）等方法。
@@ -53,3 +53,7 @@ PYTHONPATH=. .venv/bin/python -m pytest -q tests
 PYTHONPATH=. .venv/bin/python -m walkercmd.evaluate --runs runs --out results/eval.csv
 PYTHONPATH=. .venv/bin/python -m walkercmd.summarize results/eval.csv results
 ```
+
+## 许可证
+
+本仓库的代码、文档、训练产物（`runs/`）和评测结果（`results/`）采用 [MIT](LICENSE)。[Gymnasium](https://github.com/Farama-Foundation/Gymnasium) 和 [MuJoCo](https://github.com/google-deepmind/mujoco) 通过 pip 安装，遵循各自的许可证，本仓库不包含它们的源码。
